@@ -1,0 +1,43 @@
+.todo__input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.add__todo {
+  display: flex;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+
+.btn {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 7px 1rem;
+  border: 2px solid #352F44;
+}
+
+.add__todo input {
+  min-width: 20rem;
+}
+
+.add__todo button {
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 600;
+  transition: 0.2s all ease-out;
+}
+.add__todo button:hover{
+  background-color: #5C5470;
+    color: #fff;
+    border-color: #5C5470;
+}
+
+@media (max-width:510px){
+  .add__todo{
+    flex-direction: column;
+  }
+}
