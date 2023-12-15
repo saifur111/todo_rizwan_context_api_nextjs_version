@@ -5,12 +5,14 @@ import { Action, State, todoReducer } from "../reducer/todoReducer";
 
 const initialState:State = {
   isLoading:true,
-  todos: [{input:"Hi",id:Date.now(),isComplete:false}],
+  todos: [],
 };
 
 const getLocalData = ()=>{
-  const dataFromLocal = localStorage.getItem("state");
-  return dataFromLocal ? JSON.parse(dataFromLocal) : initialState;
+  if(typeof localStorage !== undefined){
+    const dataFromLocal = localStorage.getItem("state");
+    return dataFromLocal ? JSON.parse(dataFromLocal) : initialState;
+  }
 }
 
 export const GlobalTodoContext = createContext<{
@@ -26,7 +28,7 @@ export const GlobalTodoContextProvider = (props:{ children?:React.ReactNode }) =
   const [state, dispatch] = useReducer(todoReducer,getLocalData());
 
   useEffect(()=>{
-    localStorage.setItem("state",JSON.stringify(state));
+    if(typeof localStorage !== undefined) {localStorage.setItem("state",JSON.stringify(state));}
   },[state]);
 
  
