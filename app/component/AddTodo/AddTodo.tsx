@@ -5,9 +5,9 @@ import styles from "./addtodo.module.css";
 
 function AddTodo() {
   const { dispatch } = useTodoContext();
-  const input = useRef();
+  const input = useRef<HTMLInputElement | null>(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     if (input.current.value.trim().length === 0) {
       alert("Empty input!");
