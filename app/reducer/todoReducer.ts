@@ -41,7 +41,7 @@ export type State = {
   todos:TodoDto[];
 };
 
-export const todoReducer = (prevState:State, action:Action) => {
+export const todoReducer = (prevState:State, action:Action):State => {
   const { type, payload } = action;
   switch (type) {
     case "ADD__TODO":
